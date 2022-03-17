@@ -5,6 +5,7 @@ import Bcrypt from 'bcryptjs';
 export function encryptObject(object: object): string {
     let stringify = JSON.stringify(object);
     return cryptojs.AES.encrypt(stringify, process.env.AES_SECRET).toString();
+    // return cryptojs.AES.e
 };
 
 export function decryptObject(string: string): IHashData {

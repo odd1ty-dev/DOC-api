@@ -2,11 +2,13 @@ import { Page } from "objection";
 import { ModelAdmin} from "../../00_index/index.models";
 
 interface IAdminQueryEmail {
+    sAdminId?:string,
     sAdminEmail?: string;
     sPasswordHash?: string;
 }
 
 interface IAdminQueryUsername {
+    sAdminId?:string,
     sAdminUsername?: string;
     sPasswordHash?: string;
 }
@@ -19,29 +21,29 @@ interface ISavedUser {
 
 
 export default class AdminQueries {
-    async GetAdminByEmail(
+    static async GetAdminByEmail(
         sAdminEmail: string
     ): Promise<IAdminQueryEmail> {
         const results: IAdminQueryEmail = await ModelAdmin.query()
-            .select("sAdminEmail", "sPasswordHash")
+            .select("sAdminId","sAdminEmail", "sPasswordHash")
             .where("bActive", true)
             .andWhere("sAdminEmail", sAdminEmail)
             .first();
         return results;
     }
 
-    async GetAdminByUsername(
+    static async GetAdminByUsername(
         sAdminUsername: string
     ): Promise<IAdminQueryUsername> {
         const results: IAdminQueryUsername = await ModelAdmin.query()
-            .select("sAdminUsername", "sPasswordHash")
+            .select("sAdminId","sAdminUsername", "sPasswordHash")
             .where("bActive", true)
             .andWhere("sAdminUsername", sAdminUsername)
             .first();
         return results;
     }
 
-    async SaveUser({ sAdminUsername, sPasswordHash, sAdminEmail }): Promise<ISavedUser> {
+    static async SaveUser({ sAdminUsername, sPasswordHash, sAdminEmail }): Promise<ISavedUser> {
         const results: ISavedUser= await ModelAdmin.query().insertGraph({
             sAdminUsername,
             sPasswordHash,

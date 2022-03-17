@@ -6,7 +6,7 @@ export default () => (req: Request, res: Response, next: NextFunction) => {
         sLang
     } = req.params;
 
-    const ValidLanguages: string[] = ['sp'];
+    const ValidLanguages: string[] = ['sp','en'];
 
     if (ValidLanguages.includes(sLang)) {
         res.locals.sLang = sLang;

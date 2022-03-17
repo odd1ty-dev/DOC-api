@@ -1,5 +1,5 @@
 /*Reqs*/
-
+require("dotenv").config({path:".env"})
 import express, { Express, Request, Response, NextFunction } from "express";
 
 // import cors from "cors";
@@ -33,12 +33,24 @@ import helmet from "helmet";
 /**Environment setup */
 const port: number | string = process.env.NODE_PORT || 4000;
 // const environment : string = process.env.ENVIRONMENT;
-const projectName: string = process.env.PROJECT_NAME;
+const projectName: string = process.env.PROJECT_NAME ||'dumb';
 
 /** Middleware setup */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
+app.use((req: Request, res: Response, next: NextFunction): void => {
+    let { sPassword } = req.body;
+    let body = { ...req.body };
+    if (sPassword) body.sPassword = "*********";
+    console.log({
+        body: body,
+        params: req.params,
+        query: req.query
+    });
+    next();
+});
+
 app.use(logger("combined"));
 //app.use(cors());
 

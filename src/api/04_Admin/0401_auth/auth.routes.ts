@@ -8,12 +8,15 @@ const router = Router();
 
 router
     .post('/signup',
-        aH(celebrate({body:Validations.LoginBody})),
+        aH(celebrate({body:Validations.SignIn})),
         aH(Controllers.SaveUser)
     )
     .post('/login',
-        aH(celebrate({body:Validations.SignIn})),
+        aH(celebrate({body:Validations.LoginBody})),
         aH(Controllers.Login)
     )
-
+    .post('/password-recovery',
+        aH(celebrate({body:Validations.PasswordRecovery})), 
+        aH(Controllers.ChangePassword)
+    )
 export default router

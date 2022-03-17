@@ -1,19 +1,19 @@
-import { IAdmin, ModelAdmin, Admin } from "src/models/admin.model";
-import { IAllergy, ModelAllergy } from "src/models/allergy.model";
-import { IAppointment, ModelAppointment } from "src/models/appointment.model";
+import { IAdmin, ModelAdmin, Admin } from "../../models/admin.model";
+import { IAllergy, ModelAllergy } from "../..//models/allergy.model";
+import { IAppointment, ModelAppointment } from "../..//models/appointment.model";
 import {
     IAppointmentMedicine,
     ModelAppointmentMedicine,
-} from "src/models/appointmentmedicine.model";
-import { IDoctor, ModelDoctor } from "src/models/doctor.model";
-import { IMedicine, ModelMedicine } from "src/models/medicine.mode";
-import { IPatient, ModelPatient } from "src/models/patient.model";
+} from "../../models/appointmentmedicine.model";
+import { IDoctor, ModelDoctor } from "../../models/doctor.model";
+import { IMedicine, ModelMedicine } from "../../models/medicine.mode";
+import { IPatient, ModelPatient } from "../../models/patient.model";
 import {
     IPatientAllergy,
     ModelPatientAllergy,
-} from "src/models/patientallergy.model";
-import { ISpecialty, ModelSpecialty } from "src/models/specialty.model";
-import { db, RawQuery } from "src/config/db.config";
+} from "../../models/patientallergy.model";
+import { ISpecialty, ModelSpecialty } from "../../models/specialty.model";
+import { db, RawQuery } from "../../config/db.config";
 
 export {
     IAdmin,

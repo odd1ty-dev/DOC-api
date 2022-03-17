@@ -4,7 +4,7 @@ require('dotenv').config({path:'../../.env'})
 // Update with your config settings.
 
 export default {
-  development: {
+  production: {
     client: 'pg',
     connection: process.env.DB_URL_DEV,
     searchPath: ['knex', process.env.PG_DEV_SCHEMA],

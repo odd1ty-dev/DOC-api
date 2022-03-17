@@ -91,9 +91,9 @@ export default () => async (err: IErrHandler, req: Request, res: Response, next:
             new MyError(401, messages.Middleware.invalidToken['sp'])
         );
     } else if (err.type === "JoiValidationError") {
-        console.log("JOIVALIDATIONERROR");
+        console.log("JOIVALIDATIONERROR",res.locals.sLang,err.message);
         const [langCode, type, message] = [
-            'sp',
+           res.locals.sLang,
             err.message.split(" ")[0],
             err.message.split(" ")[1],
         ];
@@ -105,7 +105,6 @@ export default () => async (err: IErrHandler, req: Request, res: Response, next:
             );
         }
     } else {
-        console.log(err);
         return next(new MyError(500, err.message));
     }
 }

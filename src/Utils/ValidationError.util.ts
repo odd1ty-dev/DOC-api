@@ -9,13 +9,9 @@ export default {
                 sp: "Por favor, ingresa un correo electrónico válido.",
                 en: "Please, enter a correct email."
             },
-            sDeviceId: {
-                sp: "Por favor, ingresa un id de dispositivo correcto.",
-                en: "Please, enter a correct device id."
-            },
-            sDeviceName: {
-                sp: "Por favor, ingresa un nombre de dispositivo correcto.",
-                en: "Please, enter a correct device name."
+            sUsername:{
+                sp:"Por favor, ingresa un nombre de usuario valido",
+                en:"Please, enter a valid username"
             }
         },
         Users: {
